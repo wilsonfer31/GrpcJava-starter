@@ -1,0 +1,21 @@
+syntax="proto3";
+option java_package="com.wf.stubs";
+service UserService{
+  rpc convert(AgeUserRequest) returns (AgeUserResponse);
+  rpc getAgeStream(AgeUserRequest) returns (stream AgeUserResponse);
+  rpc doAgeStream(stream AgeUserRequest) returns (AgeUserResponse);
+  rpc fullAgeStream(stream AgeUserRequest) returns ( stream AgeUserResponse);
+}
+
+message  AgeUserRequest{
+  string name= 1;
+  int32 bornYear =2;
+}
+
+
+
+message  AgeUserResponse{
+  string name= 1;
+  int32 bornYear =2;
+  int32 age = 3;
+}
